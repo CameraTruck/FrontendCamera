@@ -85,7 +85,7 @@ var webkam = {
         tg.sendData(JSON.stringify(data));
         tg.close();
       })
-     .catch(error => console.log(error))
+     .catch(error => alert(JSON.stringify(error)))
   }
 };
 function start() {
