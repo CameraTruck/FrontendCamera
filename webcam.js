@@ -72,7 +72,7 @@ var webkam = {
     }
 
     console.log(data.getAll(`files`))
-    fetch('https://cameratruck.ru:5000/send_photos', {
+    fetch('https://truckbot.vps.gistrec.cloud:5000/send_photos', {
         method: 'POST',
         body: data
     })
