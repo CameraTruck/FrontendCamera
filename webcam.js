@@ -62,30 +62,35 @@ var webkam = {
   },
 
   send: () => {
+    alert("send button clicked")
+
     var data = new FormData()
     data.append(`chatId`, tg.initDataUnsafe.user.id);
     for (let i = 0; i != webkam.hSnaps.children.length; i++) {
-      let photo = webkam.hSnaps.children[i];  
+      let photo = webkam.hSnaps.children[i];
       photo = photo.toDataURL("image/png");
       photo = dataURLtoBlob(photo);
       data.append(`files`, photo, `${i}.png`)
     }
 
-    console.log(data.getAll(`files`))
+
+    alert("before do requests")
     fetch('https://truckbot.vps.gistrec.cloud:5000/send_photos', {
         method: 'POST',
         body: data
     })
      .then(response => {
-        console.log(response);
+        alert("Response: " + JSON.stringify(response));
         let data = {
           type: "photo",
           chatId: tg.initDataUnsafe.user.id
         };
+        alert("before do tg.sendData")
         tg.sendData(JSON.stringify(data));
+        alert("before tg.close()")
         tg.close();
       })
-     .catch(error => alert(JSON.stringify(error)))
+     .catch(error => alert("Error:" + JSON.stringify(error)))
   }
 };
 function start() {
