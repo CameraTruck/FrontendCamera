@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Webcam Capture Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- https://fonts.google.com/icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="webcam.css">
+    <script defer src="webcam.js"></script>
+  </head>
+  <body>
+    <div class="preview">
+      <button id="start" class="btn btn_start js--init_app">Начать</button>
+    </div>
+    <div id="camera" style="display: none;">
+      <!-- (A) ВИДЕО ПРЯМАЯ ТРАНСЛЯЦИЯ -->
+      <video playsinline muted id="kam-live"></video>
+
+      <!-- (B) СНИМКИ -->
+      <div id="kam-snaps"></div>
+
+      <!-- (C) УПРАВЛЕНИЕ -->
+      <div id="kam-controls" class="nav">
+        <button id="kam-take" class="nav__btn" disabled onclick="take();">
+          <span class="material-icons nav__btn__text">Сделать фото</span>
+        </button>
+        <button id="kam-save" class="nav__btn" disabled onclick="save();">
+          <span class="material-icons nav__btn__text">Отправить</span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

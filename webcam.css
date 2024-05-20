@@ -1,0 +1,92 @@
+/* (A) ENTIRE PAGE */
+* {
+    font-family: arial, sans-serif;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    background: #101010;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#kam-live, #kam-snaps, #kam-controls {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* (B) LIVE FEED VIDEO */
+#kam-live {
+    height: 600px;
+    object-fit: cover;
+}
+
+/* (C) SNAPSHOTS */
+#kam-snaps {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    min-height: 150px;
+    background: #000;
+}
+
+#kam-snaps canvas {
+    max-height: 150px;
+    width: auto;
+}
+
+/* (D) CONTROL BUTTONS */
+#kam-controls {
+    display: flex;
+}
+
+
+.preview {
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100%;
+}
+
+.btn_start {
+    width: 140px;
+
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+}
+
+.nav__btn{
+    width: 50%;
+
+    border: 0;
+    background: #333;
+    color: #fff;
+
+    font-size: 18px;
+    line-height: 36px;
+
+    cursor: pointer;
+}
+
+.nav__btn:not(:last-child){
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.nav__btn__text{
+    line-height: inherit;
+}
