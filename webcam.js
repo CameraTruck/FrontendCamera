@@ -21,7 +21,7 @@ var webkam = {
   init: () => {
     let button = document.getElementById("start");
     button.addEventListener("click", start);
-    webkam.hVid = document.getElementById("kam-live"),
+    webkam.hVid = document.getElfementById("kam-live"),
     webkam.hSnaps = document.getElementById("kam-snaps"),
     webkam.hTake = document.getElementById("kam-take"),
     webkam.hSave = document.getElementById("kam-save");
@@ -62,8 +62,6 @@ var webkam = {
   },
 
   send: () => {
-    alert("send button clicked")
-
     var data = new FormData()
     data.append(`chatId`, tg.initDataUnsafe.user.id);
     for (let i = 0; i != webkam.hSnaps.children.length; i++) {
@@ -73,21 +71,16 @@ var webkam = {
       data.append(`files`, photo, `${i}.png`)
     }
 
-
-    alert("before do requests")
     fetch('https://truckbot.vps.gistrec.cloud:5000/send_photos', {
         method: 'POST',
         body: data
     })
      .then(response => {
-        alert("Response: " + JSON.stringify(response));
         let data = {
           type: "photo",
           chatId: tg.initDataUnsafe.user.id
         };
-        alert("before do tg.sendData")
         tg.sendData(JSON.stringify(data));
-        alert("before tg.close()")
         tg.close();
       })
      .catch(error => alert("Error:" + JSON.stringify(error)))
