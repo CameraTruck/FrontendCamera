@@ -21,7 +21,7 @@ var webkam = {
   init: () => {
     let button = document.getElementById("start");
     button.addEventListener("click", start);
-    webkam.hVid = document.getElfementById("kam-live"),
+    webkam.hVid = document.getElementById("kam-live"),
     webkam.hSnaps = document.getElementById("kam-snaps"),
     webkam.hTake = document.getElementById("kam-take"),
     webkam.hSave = document.getElementById("kam-save");
